@@ -1,0 +1,52 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+version = '1.0-SNAPSHOT'
+group = 'edu.ucar.unidata'
+description = "Conway's Game of Life"
+
+configurations {
+    deployerJars
+}
+
+repositories {
+    mavenRepo url: 'https://artifacts.unidata.ucar.edu/content/groups/unidata'
+    mavenCentral()
+}
+
+dependencies {
+    compile 'net.jcip:jcip-annotations:1.0+'
+    testCompile 'junit:junit:4.8+'
+    testCompile 'org.mockito:mockito-core:1.9.0+'
+    deployerJars "org.apache.maven.wagon:wagon-http-lightweight:1.0-beta-7+"
+}
+
+sourceSets {
+    main {
+        java
+    }
+}
+
+test {
+    include ""
+}
+
+jar {
+    dependsOn configurations.runtime
+    from {configurations.runtime.collect {it.isDirectory() ? it : zipTree(it)}}
+    manifest {
+        attributes 'Main-Class': 'Controller'
+    }
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        configuration = configurations.deployerJars
+        repository(url: "https://artifacts.unidata.ucar.edu/content/repositories/unidata-snapshots") {
+            authentication(
+                userName: "deployment",
+                password: "dep.loy"
+            )
+        }
+    }
+}
