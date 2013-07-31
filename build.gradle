@@ -27,10 +27,6 @@ sourceSets {
     }
 }
 
-test {
-    include ""
-}
-
 jar {
     dependsOn configurations.runtime
     from {configurations.runtime.collect {it.isDirectory() ? it : zipTree(it)}}
@@ -49,4 +45,8 @@ uploadArchives {
             )
         }
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6' 
 }
