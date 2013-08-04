@@ -1,4 +1,5 @@
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -7,14 +8,14 @@ import org.junit.Test;
 public class TestController {
     @Test
     public final void testExecute() {
+        final int points[][] = new int[][] { { 1, 2 } };
         final Model model = mock(Model.class);
+        when(model.getPoints()).thenReturn(points);
         final View view = mock(View.class);
         final Controller controller = new Controller(model, view);
-        final int points[][] = new int[][] { { 1, 2 } };
 
-        when(model.getPoints()).thenReturn(points);
         controller.execute(1);
+        verify(view, times(2)).display(points);
         verify(model).advance();
-        verify(view).display(points);
     }
 }
