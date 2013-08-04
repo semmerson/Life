@@ -1,17 +1,50 @@
 class Controller {
+    /**
+     * The model.
+     */
     private final Model model;
+    /**
+     * The display view.
+     */
     private final View  view;
 
+    /**
+     * Constructs an instance from a model and a display view.
+     * 
+     * @param model
+     *            The model.
+     * @param view
+     *            The display view of the model.
+     */
     Controller(final Model model, final View view) {
         this.model = model;
         this.view = view;
     }
 
-    void execute(final int count) {
+    /**
+     * Iterates over advancing the model and displaying the results.
+     * 
+     * @param count
+     *            Number of iterations. 0 => no advancement and no display.
+     */
+    private void iterate(final int count) {
         for (int i = 0; i < count; i++) {
-            view.display(model.getPoints());
             model.advance();
+            view.display(model.getPoints());
         }
+    }
+
+    /**
+     * Displays the initial state of the model, then iteratively executes the
+     * model and displays the results.
+     * 
+     * @param count
+     *            Number of iterations. 0 => no advancement and subsequent
+     *            display.
+     */
+    void execute(final int count) {
+        view.display(model.getPoints());
+        iterate(count);
     }
 
     public static void main(final String[] args) {
