@@ -1,11 +1,11 @@
-final class Model {
-	Model(final int sizeX, final int sizeY) {
-	}
-	
-    int[][] getPoints() {
-    	return null;
+class Model {
+    Model(final int sizeX, final int sizeY) {
     }
 
-	void advance() {
-	}
+    int[][] getPoints() {
+        return null;
+    }
+
+    void advance() {
+    }
 }
