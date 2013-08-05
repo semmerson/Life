@@ -38,12 +38,7 @@ jar {
 uploadArchives {
     repositories.mavenDeployer {
         configuration = configurations.deployerJars
-        repository(url: "https://artifacts.unidata.ucar.edu/content/repositories/unidata-snapshots") {
-            authentication(
-                userName: "deployment",
-                password: "dep.loy"
-            )
-        }
+        repository(url: "https://artifacts.unidata.ucar.edu/content/repositories/unidata-snapshots")
     }
 }
 
