@@ -1,6 +1,14 @@
+/**
+ * Copyright 2013 University Corporation for Atmospheric Research.  All rights
+ * reserved.  See file LICENSE in the top-level source-directory for licensing
+ * information.
+ */
+
 import net.jcip.annotations.NotThreadSafe;
 
 /**
+ * The "Game of Life" model.
+ * <p>
  * Instances are thread-compatible but not thread safe.
  * 
  * @author Steven R. Emmerson

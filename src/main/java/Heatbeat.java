@@ -5,19 +5,19 @@
  */
 
 /**
- * Indicates if a point is alive or dead.
+ * Indicates if a 2-D integral point is alive or dead.
  * 
  * @author Steven R. Emmerson
  */
 interface Heartbeat {
     /**
-     * Indicates if a point is alive or dead.
+     * Indicates if a 2-D integral point is alive or dead.
      * 
-     * @param x
-     *            X co-ordinate.
-     * @param y
-     *            Y co-ordinate.
+     * @param inner
+     *            Inner co-ordinate.
+     * @param outer
+     *            Outer co-ordinate.
      * @return true if and only if the point is alive.
      */
-    boolean isAlive(int x, int y);
+    boolean isAlive(int inner, int outer);
 }
