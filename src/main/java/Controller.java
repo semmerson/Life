@@ -30,7 +30,7 @@ class Controller {
     private void iterate(final int count) {
         for (int i = 0; i < count; i++) {
             model.advance();
-            view.display(model.getPoints());
+            view.display(model.getHeartbeat());
         }
     }
 
@@ -43,7 +43,7 @@ class Controller {
      *            display.
      */
     void execute(final int count) {
-        view.display(model.getPoints());
+        view.display(model.getHeartbeat());
         iterate(count);
     }
 

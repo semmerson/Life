@@ -8,14 +8,13 @@ import org.junit.Test;
 public class TestController {
     @Test
     public final void testExecute() {
-        final int points[][] = new int[][] { { 1, 2 } };
         final Model model = mock(Model.class);
-        when(model.getPoints()).thenReturn(points);
+        when(model.getHeartbeat()).thenReturn(null);
         final View view = mock(View.class);
         final Controller controller = new Controller(model, view);
 
         controller.execute(1);
-        verify(view, times(2)).display(points);
+        verify(view, times(2)).display(null);
         verify(model).advance();
     }
 }
