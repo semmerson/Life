@@ -52,13 +52,13 @@ public class TestView {
      */
     @Test
     public final void testDisplay() {
-        final View view = new View(1, 2);
+        final View view = new View(2, 1);
         final ByteArrayOutputStream baos = new ByteArrayOutputStream();
         System.setOut(new PrintStream(baos));
         view.display(new Heartbeat() {
             @Override
-            public boolean isAlive(final int x, final int y) {
-                return x == 0 && y == 1;
+            public boolean isAlive(final int outer, final int inner) {
+                return inner == 0 && outer == 1;
             }
         });
         System.out.close();

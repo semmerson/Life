@@ -27,14 +27,14 @@ class View {
     /**
      * Constructs from the size of the inner and outer dimensions.
      * 
-     * @param innerSize
-     *            The size of the inner dimension.
      * @param outerSize
      *            The size of the outer dimension.
+     * @param innerSize
+     *            The size of the inner dimension.
      * @throws IllegalArgumentException
      *             if innerSize < 0 || outerSize < 0
      */
-    View(final int innerSize, final int outerSize) {
+    View(final int outerSize, final int innerSize) {
         if (innerSize < 0 || outerSize < 0) {
             throw new IllegalArgumentException("innerSize=" + innerSize
                     + "; outerSize=" + outerSize);
@@ -50,9 +50,9 @@ class View {
      *            An object that indicates if a point is alive or dead.
      */
     void display(final Heartbeat heartbeat) {
-        for (int y = 0; y < outerSize; y++) {
-            for (int x = 0; x < innerSize; x++) {
-                System.out.print(heartbeat.isAlive(x, y)
+        for (int outer = 0; outer < outerSize; outer++) {
+            for (int inner = 0; inner < innerSize; inner++) {
+                System.out.print(heartbeat.isAlive(outer, inner)
                         ? '#'
                         : ' ');
             }

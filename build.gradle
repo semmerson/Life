@@ -21,6 +21,10 @@ dependencies {
     deployerJars "org.apache.maven.wagon:wagon-http:2.2+"
 }
 
+test {
+    include 'Test*'
+}
+
 sourceSets {
     main {
         java
