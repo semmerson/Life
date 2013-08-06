@@ -1,26 +1,27 @@
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 /**
- * @author emmerson
+ * Unit-test for the "Game of Life" rules.
+ * 
+ * @author Steven R. Emmerson
  */
 public class TestRules {
-    static Rules rules = new Rules();
-
-	@Test
-	public void testNextState() {
+    @Test
+    public void testNextState() {
+        final Rules rules = new Rules();
         for (int n = 0; n < 2; n++) {
-            assertEquals(State.DEAD, rules.nextState(State.DEAD, n));
-            assertEquals(State.DEAD, rules.nextState(State.ALIVE, n));
+            assertEquals(false, rules.nextState(false, n));
+            assertEquals(false, rules.nextState(true, n));
         }
         for (int n = 8; n > 3; n--) {
-            assertEquals(State.DEAD, rules.nextState(State.DEAD, n));
-            assertEquals(State.DEAD, rules.nextState(State.ALIVE, n));
+            assertEquals(false, rules.nextState(false, n));
+            assertEquals(false, rules.nextState(true, n));
         }
-        assertEquals(State.DEAD, rules.nextState(State.DEAD, 2));
-        assertEquals(State.ALIVE, rules.nextState(State.ALIVE, 2));
-        assertEquals(State.ALIVE, rules.nextState(State.DEAD, 3));
-        assertEquals(State.ALIVE, rules.nextState(State.ALIVE, 3));
-	}
+        assertEquals(false, rules.nextState(false, 2));
+        assertEquals(true, rules.nextState(true, 2));
+        assertEquals(true, rules.nextState(false, 3));
+        assertEquals(true, rules.nextState(true, 3));
+    }
 }

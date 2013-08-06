@@ -10,13 +10,23 @@
  * @author Steven R. Emmerson
  */
 final class Rules {
-    State nextState(final State state, final int numNeighbors) {
+    /**
+     * Returns the state of a point in the next iteration.
+     * 
+     * @param isAlive
+     *            Whether or not the point is currently alive.
+     * @param numNeighbors
+     *            The number of live neighbors of the point.
+     * @return <code>true</code> if and only if the point should be alive in the
+     *         next iteration.
+     */
+    boolean nextState(final boolean isAlive, final int numNeighbors) {
         if (numNeighbors == 2) {
-            return state;
+            return isAlive;
         }
         if (numNeighbors == 3) {
-            return State.ALIVE;
+            return true;
         }
-        return State.DEAD;
+        return false;
     }
 }
