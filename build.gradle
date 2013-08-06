@@ -18,7 +18,7 @@ dependencies {
     compile 'net.jcip:jcip-annotations:1.0+'
     testCompile 'junit:junit:4.8+'
     testCompile 'org.mockito:mockito-core:1.9.0+'
-    deployerJars "org.apache.maven.wagon:wagon-http-lightweight:1.0-beta-7+"
+    deployerJars "org.apache.maven.wagon:wagon-http:2.2+"
 }
 
 sourceSets {
@@ -38,10 +38,12 @@ jar {
 uploadArchives {
     repositories.mavenDeployer {
         configuration = configurations.deployerJars
-        repository(url: "https://artifacts.unidata.ucar.edu/content/repositories/unidata-snapshots")
+        repository(url: "https://artifacts.unidata.ucar.edu/content/repositories/unidata-snapshots") {
+            authentication(userName: nexusUsername, password: nexusPassword)
+        }
     }
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.6' 
+    gradleVersion = '1.7' 
 }
