@@ -26,7 +26,6 @@ test {
 }
 
 task integrationTests(type: Test) {
-    println "Executing integration tests"
     include 'Check*'
     mustRunAfter test
 }

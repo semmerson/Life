@@ -1,10 +1,10 @@
-import net.jcip.annotations.NotThreadSafe;
-
 /**
  * Copyright 2013 University Corporation for Atmospheric Research. All rights
  * reserved. See file LICENSE in the top-level source-directory for licensing
  * information.
  */
+
+import net.jcip.annotations.NotThreadSafe;
 
 /**
  * The "Game of Life" display view.
@@ -20,7 +20,7 @@ class View {
      */
     private final int innerSize;
     /**
-     * The size of the Y (outer) dimension.
+     * The size of the outer dimension.
      */
     private final int outerSize;
 
@@ -51,6 +51,7 @@ class View {
      *            An object that indicates if a point is alive or dead.
      */
     void display(final Heartbeat heartbeat) {
+        printSeparator();
         for (int outer = 0; outer < outerSize; outer++) {
             for (int inner = 0; inner < innerSize; inner++) {
                 System.out.print(heartbeat.isAlive(outer, inner)
@@ -59,5 +60,16 @@ class View {
             }
             System.out.println();
         }
+        printSeparator();
+    }
+
+    /**
+     * Prints a separator between the individual time-step displays.
+     */
+    private void printSeparator() {
+        for (int inner = 0; inner < innerSize; inner++) {
+            System.out.print('-');
+        }
+        System.out.println();
     }
 }
