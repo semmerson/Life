@@ -30,6 +30,6 @@ public class TestView {
             }
         });
         System.out.close();
-        assertEquals("", " \n#\n", baos.toString());
+        assertEquals("", "-\n \n#\n-\n", baos.toString());
     }
 }

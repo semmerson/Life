@@ -44,8 +44,9 @@ class View {
     }
 
     /**
-     * Displays points that are alive. Writes to the standard output stream and
-     * uses the character '#' to indicate a live point.
+     * Displays points that are alive. Prints a separator line of '-' characters
+     * to the standard output stream, then prints the grid using '#' for a live
+     * point and ' ' for a dead one, and then prints another separator line.
      * 
      * @param heartbeat
      *            An object that indicates if a point is alive or dead.

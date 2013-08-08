@@ -33,7 +33,8 @@ public class CheckController {
         System.setOut(new PrintStream(baos));
         controller.execute(1);
         System.out.close();
-        assertEquals("", "     \n     \n ### \n     \n     \n"
-                + "     \n  #  \n  #  \n  #  \n     \n", baos.toString());
+        assertEquals("", "-----\n     \n     \n ### \n     \n     \n-----\n"
+                + "-----\n     \n  #  \n  #  \n  #  \n     \n-----\n",
+                baos.toString());
     }
 }
