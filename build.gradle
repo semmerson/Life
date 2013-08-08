@@ -25,11 +25,13 @@ test {
     include 'Test*'
 }
 
-sourceSets {
-    main {
-        java
-    }
+task integrationTests(type: Test) {
+    println "Executing integration tests"
+    include 'Check*'
+    mustRunAfter test
 }
+
+check.dependsOn(integrationTests)
 
 jar {
     dependsOn configurations.runtime

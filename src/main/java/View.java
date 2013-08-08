@@ -44,7 +44,8 @@ class View {
     }
 
     /**
-     * Displays points that are alive.
+     * Displays points that are alive. Writes to the standard output stream and
+     * uses the character '#' to indicate a live point.
      * 
      * @param heartbeat
      *            An object that indicates if a point is alive or dead.
