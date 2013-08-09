@@ -30,7 +30,7 @@ task integrationTests(type: Test) {
     mustRunAfter test
 }
 
-check.dependsOn(integrationTests)
+// check.dependsOn(integrationTests)
 
 jar {
     dependsOn configurations.runtime
