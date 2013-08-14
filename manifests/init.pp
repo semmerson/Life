@@ -17,8 +17,3 @@ exec {'bashrc':
 }
   
 exec {'update': command => 'apt-get update', }
-
-package { 'gradle':
-  ensure  => present,
-  require => Exec['update'],
-}
