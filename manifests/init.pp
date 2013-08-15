@@ -10,15 +10,26 @@ file { '/etc/motd':
 }
 
 Exec { path => ['/usr/bin', '/bin', '/usr/sbin', '/sbin'], }
-
-exec {'bashrc':
-  command => 'echo "set -o vi" >>/home/vagrant/.bashrc',
-  unless  => 'grep "set *-o" /home/vagrant/.bashrc',
-}
   
 exec {'update': command => 'apt-get update', }
 
 package {'openjdk-7-jdk':
   ensure  => present,
   require => Exec['update'],
+}
+
+exec {'bashrc':
+  command => 'echo "set -o vi" >>/home/vagrant/.bashrc',
+  unless  => 'grep "set *-o" /home/vagrant/.bashrc',
+}
+
+file {'/home/vagrant/.gradle':
+  ensure  => directory,
+  owner   => vagrant,
+}
+
+file {'/home/vagrant/.gradle/gradle.properties':
+  content  => "nexusUsername=dummyNexusUsername\nnexusPassword=dummyNexusPassword\n",
+  ensure   => file,
+  owner    => vagrant,
 }
