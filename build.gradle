@@ -38,7 +38,7 @@ jar {
     }
 }
 
-uploadSnapshot {
+uploadArchives {
     repositories.mavenDeployer {
         configuration = configurations.deployerJars
         repository(url: "https://artifacts.unidata.ucar.edu/content/repositories/unidata-snapshots") {
