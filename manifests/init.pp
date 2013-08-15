@@ -3,12 +3,6 @@ group { "puppet":
 }
 
 File { owner => 0, group => 0, mode => 0644 }
-
-file { '/etc/motd':
-  content => "Welcome to your Vagrant-built virtual machine!
-              Managed by Puppet.\n"
-}
-
 Exec { path => ['/usr/bin', '/bin', '/usr/sbin', '/sbin'], }
   
 exec {'update': command => 'apt-get update', }

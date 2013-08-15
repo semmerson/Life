@@ -30,8 +30,6 @@ task integrationTests(type: Test) {
     mustRunAfter test
 }
 
-// check.dependsOn(integrationTests)
-
 jar {
     dependsOn configurations.runtime
     from {configurations.runtime.collect {it.isDirectory() ? it : zipTree(it)}}
@@ -40,7 +38,7 @@ jar {
     }
 }
 
-uploadArchives {
+uploadSnapshot {
     repositories.mavenDeployer {
         configuration = configurations.deployerJars
         repository(url: "https://artifacts.unidata.ucar.edu/content/repositories/unidata-snapshots") {
