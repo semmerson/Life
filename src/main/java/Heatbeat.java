@@ -13,11 +13,11 @@ interface Heartbeat {
     /**
      * Indicates if a 2-D integral point is alive or dead.
      * 
-     * @param inner
-     *            Inner co-ordinate.
      * @param outer
      *            Outer co-ordinate.
+     * @param inner
+     *            Inner co-ordinate.
      * @return true if and only if the point is alive.
      */
-    boolean isAlive(int inner, int outer);
+    boolean isAlive(int outer, int inner);
 }
