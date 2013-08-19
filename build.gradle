@@ -43,7 +43,7 @@ jar {
 uploadArchives {
     repositories.mavenDeployer {
         configuration = configurations.deployerJars
-        repository(url: nexusUrl + "repositories/unidata-snapshots") {
+        repository(url: nexusUrl + "repositories/unidata-releases") {
             authentication(userName: nexusUsername, password: nexusPassword)
         }
     }
