@@ -27,7 +27,7 @@ test {
     include 'Test*'
 }
 
-task integrationTests(type: Test) {
+task slowTests(type: Test) {
     include 'Check*'
     mustRunAfter test
 }
