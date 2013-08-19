@@ -5,7 +5,7 @@ version = '1.0'
 group = 'edu.ucar.unidata'
 description = "Conway's Game of Life"
 
-def nexusUrl = 'https://artifacts.unidata.ucar.edu/content/'
+def nexusUrl = 'http://artifacts.unidata.ucar.edu/content/'
 
 configurations {
     deployerJars
