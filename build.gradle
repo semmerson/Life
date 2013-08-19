@@ -5,12 +5,14 @@ version = '1.0-SNAPSHOT'
 group = 'edu.ucar.unidata'
 description = "Conway's Game of Life"
 
+def nexusUrl = 'https://artifacts.unidata.ucar.edu/content/'
+
 configurations {
     deployerJars
 }
 
 repositories {
-    mavenRepo url: 'https://artifacts.unidata.ucar.edu/content/groups/unidata'
+    mavenRepo url: nexusUrl + 'groups/unidata'
     mavenCentral()
 }
 
@@ -41,7 +43,7 @@ jar {
 uploadArchives {
     repositories.mavenDeployer {
         configuration = configurations.deployerJars
-        repository(url: "https://artifacts.unidata.ucar.edu/content/repositories/unidata-snapshots") {
+        repository(url: nexusUrl + "repositories/unidata-snapshots") {
             authentication(userName: nexusUsername, password: nexusPassword)
         }
     }
